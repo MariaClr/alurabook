@@ -1,0 +1,142 @@
+.cabecalho__menu-hamburguer{
+    width: 1rem;
+    height: 1rem;
+    background-image: url("../assents/Menu.svg");
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cabecalho{
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    position: relative; 
+    align-items: center;
+    /* position:relative permite que use top left rigth bottom */
+}
+.container{
+    display: flex;
+    align-items: center;
+}
+.container__imagem{
+    padding: 1rem;
+}
+.lista-menu{
+     display: none;  /* para o elemento nao ocupar nenhum espaco ou seja desaparecer*/
+    position: absolute;
+    /* position:absolute permite que vc movimente o elemento de acordo com o que veio antes ou pai que tenha position diferente de static por isso o cabecalho ta position relative */
+    top: 100%;
+    width: 45vw ;
+    z-index: 1;
+}
+
+/* o '~' procura primeiro item que tem a classe lista menu */
+.container__botao:checked~.lista-menu{
+    display: block;
+}
+.container__botao:checked~.container__rotulo>.cabecalho__menu-hamburguer{
+    background-image: url(../assents/Menu\ Aberto.svg);
+}
+.container__botao:checked~.container__rotulo{
+    background: var(--gradiante);
+
+}
+.lista-menu__titulo, .lista-menu__item{
+    padding: 1rem;
+    background-color: var(--branco);
+}
+.lista-menu__titulo{
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link{
+    background: var(--gradiante);
+    --webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+.container__botao{
+    display: none;
+}
+.container__titulo{
+    display: none;
+}
+.opcoes{
+    display: none;
+}
+.opcoes__item{
+    padding: 2rem 3rem;
+}
+
+.container__texto{display: none;}
+/* tablet */
+@media screen and (min-width: 1024px){
+    /* cabecalho */
+    .container__titulo, .container__titulo--negrito{
+        font-family: var(--fonte-secundaria);
+        font-size: 1.8rem;
+    }
+    .container__titulo{
+        font-weight: 400;
+        display: block;
+    }
+    .container__titulo--negrito{
+        font-weight: 700;
+    }
+    .opcoes{
+        display: flex;
+       
+    }
+    .opcoes__item{
+        padding: 2rem 1rem;
+        text-transform: upperCase;
+    }
+    .opcoes__link{
+        text-decoration: none;
+        color: var(--preto);
+    }
+    .container__imagem-trasparent{
+        display: none;
+    }
+    .cabecalho__menu-hamburguer{
+        display: none;
+    
+    }
+    .lista-dois{
+        width: auto;
+    }
+    .lista-menu__item:hover{
+        background: var(--gradiante);
+        
+    }
+    .lista-menu__item:hover>.lista-menu__link{
+        -webkit-text-fill-color: var(--branco);
+    }
+   
+   
+}
+
+/* desktop */
+
+@media screen and (min-width:1728px) {
+    .container__link{
+        display: flex;
+        align-items: center;
+        color: var(--preto);
+    }
+    .cabecalho{
+        padding: 0 2rem ;
+    } 
+
+    .opcoes{
+        margin-right: auto;
+    }
+    .container__texto{
+        display: block;
+    }
+    .opcoes__item{
+        cursor: pointer ;
+    }
+}
